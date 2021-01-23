@@ -27,7 +27,7 @@ function Map({zoom, otherData, longitude, latitude, activeKey}) {
             </Marker>
             {
                 otherData.map(obj => (
-                    <Marker icon={myIcon} position={[obj.latitude, obj.longitude]}>
+                    <Marker key={`key ${obj.latitude}`} icon={myIcon} position={[obj.latitude, obj.longitude]}>
                         
                     </Marker>
                 ))
