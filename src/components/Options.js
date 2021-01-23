@@ -4,13 +4,14 @@ import './Options.css'
 import axios from 'axios'
 import { Avatar } from 'antd'
 import ZoomBar from "./ZoomBar"
+import url from '../axios/base'
 
 function Options({zoom, setZoom, setOtherData, setData, setActiveKey, setLongitude, setLatitude, data}) {
     
     const { Meta } = Card;
 
     const home = () => {
-        axios.get('http://localhost:2727').then(res => {
+        axios.get(url.BASE_URL).then(res => {
             const obj = res.data.points[0];
             setData(obj);
             setLatitude(obj.UNA.latitude);
@@ -38,7 +39,7 @@ function Options({zoom, setZoom, setOtherData, setData, setActiveKey, setLongitu
         setZoom(11)
     }
     const locationChandigarh = () => {
-        axios.get('http://localhost:2727/Chandigarh').then(res => {
+        axios.get(`${url.BASE_URL}Chandigarh`).then(res => {
             setLatitude(30.7499)
             setLongitude(76.6411)
             setOtherData(res.data.data)
