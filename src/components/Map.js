@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import L from 'leaflet'
 import Icon from '../Assets/user_location.svg'
@@ -6,6 +6,7 @@ import Icon from '../Assets/user_location.svg'
 function Map({longitude, latitude, activeKey}) {
     
     var position = [latitude, longitude]
+    var position1 = [latitude+100, longitude+100]
     const myIcon = L.icon({
         iconUrl: Icon,
         iconSize: [38, 95],
@@ -22,9 +23,15 @@ function Map({longitude, latitude, activeKey}) {
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
             <Marker icon={myIcon} position={position}>
-            <Popup>
-                A pretty CSS3 popup. <br /> Easily customizable.
-            </Popup>
+                <Popup>
+                    A pretty CSS3 popup. <br /> Easily customizable.
+                </Popup>
+            </Marker>
+            
+            <Marker icon={myIcon} position={position1}>
+                <Popup>
+                    A pretty CSS3 popup. <br /> Easily customizable.
+                </Popup>
             </Marker>
         </MapContainer>
     )
