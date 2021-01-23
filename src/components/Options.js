@@ -4,7 +4,7 @@ import './Options.css'
 import axios from 'axios'
 import {Avatar} from 'antd'
 
-function Options({setData, setActiveKey, setLongitude, setLatitude, data}) {
+function Options({otherData, setOtherData, setData, setActiveKey, setLongitude, setLatitude, data}) {
     
     const { Meta } = Card;
 
@@ -34,6 +34,14 @@ function Options({setData, setActiveKey, setLongitude, setLatitude, data}) {
         setLongitude(data.NewDelhi.longitude)
         setActiveKey('newDelhi')
     }
+    const locationChandigarh = () => {
+        axios.get('http://localhost:2727/Chandigarh').then(res => {
+            setLatitude(30.9293211)
+            setLongitude(75.5004841)
+            setOtherData(res.data.data)
+            setActiveKey('Chandigarh')
+        }).catch(e => console.log(e))
+     }
 
 
     return (
@@ -53,6 +61,14 @@ function Options({setData, setActiveKey, setLongitude, setLatitude, data}) {
                     cover={<Avatar style={{width: '100px', height: '100px', objectFit: 'cover', margin: '10px auto'}} src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
                 >
                     <Meta title="Home Town" description="New Delhi" />
+                </Card>
+                <Card
+                    onClick={locationChandigarh}
+                    hoverable
+                    style={{ width: 240 }}
+                    cover={<Avatar style={{width: '100px', height: '100px', objectFit: 'cover', margin: '10px auto'}} src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
+                >
+                    <Meta title="Punjab" description="Punjab" />
                 </Card>
         </div>
     )
