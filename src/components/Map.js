@@ -3,7 +3,7 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import L from 'leaflet'
 import Icon from '../Assets/user_location.svg'
 
-function Map({runFunction, longitude, latitude, activeKey}) {
+function Map({longitude, latitude, activeKey}) {
     
     var position = [latitude, longitude]
     const myIcon = L.icon({
@@ -13,11 +13,7 @@ function Map({runFunction, longitude, latitude, activeKey}) {
         popupAnchor: [-3, -76]
     })
 
-    useEffect(() => {
-        runFunction();
-    }, [])
 
-    
 
     return (
         <MapContainer key={`activeKey ${activeKey}`} style={{width: '80%', height: '500px', margin: '25px auto',}} center={position} zoom={30} scrollWheelZoom={false}>
