@@ -2,9 +2,10 @@ import React,{useEffect} from 'react'
 import { Card } from 'antd'
 import './Options.css'
 import axios from 'axios'
-import {Avatar} from 'antd'
+import { Avatar } from 'antd'
+import ZoomBar from "./ZoomBar"
 
-function Options({otherData, setOtherData, setData, setActiveKey, setLongitude, setLatitude, data}) {
+function Options({zoom, setZoom, setOtherData, setData, setActiveKey, setLongitude, setLatitude, data}) {
     
     const { Meta } = Card;
 
@@ -28,48 +29,55 @@ function Options({otherData, setOtherData, setData, setActiveKey, setLongitude, 
         setLatitude(data.UNA.latitude)
         setLongitude(data.UNA.longitude)
         setActiveKey('UNA')
+        setZoom(11)
     }
     const locationNewDelhi = () => {
         setLatitude(data.NewDelhi.latitude)
         setLongitude(data.NewDelhi.longitude)
         setActiveKey('newDelhi')
+        setZoom(11)
     }
     const locationChandigarh = () => {
         axios.get('http://localhost:2727/Chandigarh').then(res => {
-            setLatitude(30.9293211)
-            setLongitude(75.5004841)
+            setLatitude(30.7499)
+            setLongitude(76.6411)
             setOtherData(res.data.data)
             setActiveKey('Chandigarh')
+            setZoom(11)
         }).catch(e => console.log(e))
      }
 
 
     return (
-        <div className='cardOptions'>
-                <Card
-                    onClick={locationUNA}
-                    hoverable
-                    style={{ width: 240 }}
-                    cover={<Avatar style={{width: '100px', height: '100px', objectFit: 'cover', margin: '10px auto'}} src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
-                >
-                    <Meta title="UNA" description="UNA" />
-                </Card>
-                <Card
-                    onClick={locationNewDelhi}
-                    hoverable
-                    style={{ width: 240 }}
-                    cover={<Avatar style={{width: '100px', height: '100px', objectFit: 'cover', margin: '10px auto'}} src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
-                >
-                    <Meta title="Home Town" description="New Delhi" />
-                </Card>
-                <Card
-                    onClick={locationChandigarh}
-                    hoverable
-                    style={{ width: 240 }}
-                    cover={<Avatar style={{width: '100px', height: '100px', objectFit: 'cover', margin: '10px auto'}} src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
-                >
-                    <Meta title="Punjab" description="Punjab" />
-                </Card>
+        <div>
+            <ZoomBar zoom={zoom} setActiveKey={setActiveKey} setZoom={setZoom} />
+
+            <div className='cardOptions'>
+                    <Card
+                        onClick={locationUNA}
+                        hoverable
+                        style={{ width: 240 }}
+                        cover={<Avatar style={{width: '100px', height: '100px', objectFit: 'cover', margin: '10px auto'}} src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
+                    >
+                        <Meta title="UNA" description="UNA" />
+                    </Card>
+                    <Card
+                        onClick={locationNewDelhi}
+                        hoverable
+                        style={{ width: 240 }}
+                        cover={<Avatar style={{width: '100px', height: '100px', objectFit: 'cover', margin: '10px auto'}} src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
+                    >
+                        <Meta title="Home Town" description="New Delhi" />
+                    </Card>
+                    <Card
+                        onClick={locationChandigarh}
+                        hoverable
+                        style={{ width: 240 }}
+                        cover={<Avatar style={{width: '100px', height: '100px', objectFit: 'cover', margin: '10px auto'}} src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
+                    >
+                        <Meta title="Punjab" description="Punjab" />
+                    </Card>
+            </div>
         </div>
     )
 }

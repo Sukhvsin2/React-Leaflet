@@ -3,7 +3,7 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import L from 'leaflet'
 import Icon from '../Assets/user_location.svg'
 
-function Map({otherData, longitude, latitude, activeKey}) {
+function Map({zoom, otherData, longitude, latitude, activeKey}) {
     
     var position = [latitude, longitude]
 
@@ -15,7 +15,7 @@ function Map({otherData, longitude, latitude, activeKey}) {
     })
 
     return (
-        <MapContainer key={`activeKey ${activeKey}`} style={{width: '80%', height: '500px', margin: '25px auto',}} center={position} zoom={30} scrollWheelZoom={false}>
+        <MapContainer key={`activeKey ${activeKey}`} style={{width: '80%', height: '500px', margin: '25px auto',}} center={position} zoom={zoom} scrollWheelZoom={false}>
             <TileLayer
             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

@@ -1,0 +1,10 @@
+.zoombar{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 20px auto;
+}
+
+.zoombar > .ant-slider{
+    width: 20vw;
+}
