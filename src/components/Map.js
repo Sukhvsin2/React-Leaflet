@@ -2,13 +2,21 @@ import React from 'react'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import L from 'leaflet'
 import Icon from '../Assets/user_location.svg'
+import MyLoc from "../Assets/location.svg"
 
-function Map({zoom, otherData, longitude, latitude, activeKey}) {
+function Map({location, zoom, otherData, longitude, latitude, activeKey}) {
     
     var position = [latitude, longitude]
 
     const myIcon = L.icon({
         iconUrl: Icon,
+        iconSize: [38, 95],
+        iconAnchor: [22, 94],
+        popupAnchor: [-3, -76]
+    })
+
+    const myLocation = L.icon({
+        iconUrl: MyLoc,
         iconSize: [38, 95],
         iconAnchor: [22, 94],
         popupAnchor: [-3, -76]
@@ -20,15 +28,17 @@ function Map({zoom, otherData, longitude, latitude, activeKey}) {
             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
-            <Marker key={'default'} icon={myIcon} position={position}>
+            <Marker key={'default'} icon={myLocation} position={position}>
                 <Popup>
-                    A pretty CSS3 popup. <br /> Easily customizable.
+                    {location}
                 </Popup>
             </Marker>
             {
                 otherData.map(obj => (
                     <Marker key={`key ${obj.latitude}`} icon={myIcon} position={[obj.latitude, obj.longitude]}>
-                        
+                        <Popup>
+                            {obj.message}
+                        </Popup>
                     </Marker>
                 ))
             }
