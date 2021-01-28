@@ -21,9 +21,23 @@ function Options({setLocation, zoom, setZoom, setOtherData, setData, setActiveKe
 
     
     useEffect(() => {
-        /* eslint-disable react-hooks/exhaustive-deps */
+    /* eslint-disable react-hooks/exhaustive-deps */
         home();
     }, [])
+
+    const lifeMap = () => {
+        axios.get(`${url.BASE_URL}LifeMap`).then(res => {
+            console.log('res ', res);
+            const data = res.data.data;
+            setLatitude(28.6563)
+            setLongitude(77.2321)
+            setActiveKey('LIFEMAP')
+            setOtherData([])
+            setOtherData(data)
+            setLocation('LIFE MAP')
+            setZoom(3)
+        }).catch(e => console.log(e))
+    }
     
     const locationUNA = () => {
         setLatitude(data.UNA.latitude)
@@ -33,19 +47,17 @@ function Options({setLocation, zoom, setZoom, setOtherData, setData, setActiveKe
         setLocation('UNA')
         setZoom(11)
     }
-    
-    const locationIndia = () => {
-        axios.get(`${url.BASE_URL}India`).then(res => {
-            setLatitude(28.6563)
-            setLongitude(77.2321)
+    const locationChandigarh = () => {
+        axios.get(`${url.BASE_URL}Chandigarh`).then(res => {
+            setLatitude(30.7499)
+            setLongitude(76.6411)
             setOtherData([])
             setOtherData(res.data.data)
-            setActiveKey('India')
-            setLocation('India')
-            setZoom(7)
+            setActiveKey('Chandigarh')
+            setLocation('Punjab')
+            setZoom(11)
         }).catch(e => console.log(e))
-     }
-
+    }
 
     return (
         <div>
@@ -56,17 +68,24 @@ function Options({setLocation, zoom, setZoom, setOtherData, setData, setActiveKe
                         hoverable
                         style={{ width: 240 }}
                         cover={<Avatar style={{width: '100px', height: '100px', objectFit: 'cover', margin: '10px auto'}} src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
-                    >
+                        >
                         <Meta title="UNA" description="UNA" />
                     </Card>
-                    
                     <Card
-                        onClick={locationIndia}
+                        onClick={locationChandigarh}
+                        hoverable
+                        style={{ width: 240 }}
+                        cover={<Avatar style={{width: '100px', height: '100px', objectFit: 'cover', margin: '10px auto'}} src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
+                        >
+                        <Meta title="Schooling" description="Chandigarh University" />
+                    </Card>
+                    <Card
+                        onClick={lifeMap}
                         hoverable
                         style={{ width: 240 }}
                         cover={<Avatar style={{width: '100px', height: '100px', objectFit: 'cover', margin: '10px auto'}} src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
                     >
-                        <Meta title="India" description="India" />
+                        <Meta title="Life Map" description="LifeMap" />
                     </Card>
             </div>
         </div>

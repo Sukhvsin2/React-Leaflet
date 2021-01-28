@@ -4,6 +4,7 @@ import { Tabs } from 'antd'
 import './Tabs.css'
 import ZoomBar from "./ZoomBar"
 import Options2 from './Options2';
+import Options3 from './Options3';
 
 function Tab({setLocation, zoom, setZoom, setOtherData, setData, setActiveKey, setLongitude, setLatitude, data}) {
 
@@ -13,11 +14,14 @@ function Tab({setLocation, zoom, setZoom, setOtherData, setData, setActiveKey, s
         <div>
             <ZoomBar zoom={zoom} setActiveKey={setActiveKey} setZoom={setZoom} />
             <Tabs>
-                <TabPane tab="US" key={1}>
+                <TabPane tab="Life" key={1}>
                     <Options setLocation={setLocation} zoom={zoom} setZoom={setZoom} setOtherData={setOtherData} setData={setData} setActiveKey={setActiveKey} setLatitude={setLatitude} setLongitude={setLongitude} data={data}/>
                 </TabPane>
-                <TabPane tab="India" key={2}>
+                <TabPane tab="Travling" key={2}>
                     <Options2 setLocation={setLocation} zoom={zoom} setZoom={setZoom} setOtherData={setOtherData} setData={setData} setActiveKey={setActiveKey} setLatitude={setLatitude} setLongitude={setLongitude} data={data}/>
+                </TabPane>
+                <TabPane tab="Wish" key={3}>
+                    <Options3 setLocation={setLocation} zoom={zoom} setZoom={setZoom} setOtherData={setOtherData} setData={setData} setActiveKey={setActiveKey} setLatitude={setLatitude} setLongitude={setLongitude} data={data}/>
                 </TabPane>
             </Tabs>
         </div>

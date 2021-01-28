@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './App.css';
 import Map from './components/Map'
-// import Options from './components/Options'
+import Head from './components/Head'
 import Footer from './components/Footer'
 import Tab from './components/Tabs';
 
@@ -20,7 +20,7 @@ function App() {
   }, [])
   return (
     <div className="App">
-      <h2>Geography Assignment</h2>
+      <Head/>
       <Map location={location} zoom={zoom} otherData={otherData} longitude={longitude} latitude={latitude} activeKey={activeKey} />
       {/* <Options  /> */}
       <Tab setLocation={setLocation} zoom={zoom} setZoom={setZoom} setOtherData={setOtherData} setData={setData} setActiveKey={setActiveKey} setLatitude={setLatitude} setLongitude={setLongitude} data={data} />

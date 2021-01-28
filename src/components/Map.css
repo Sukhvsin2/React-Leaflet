@@ -1,0 +1,37 @@
+.mapContainer{
+    position: relative;
+    z-index: 0;
+    width: 80%;
+    margin: 25px auto;
+}
+
+.legend{
+    width: 200px;
+    /* height: 100px; */
+    right: 20px;
+    top: 30px;
+    background-color: #8395a7;
+    opacity: 0.8;
+    z-index: 999;
+    position: absolute;
+    padding: 6px 12px;
+}
+
+.legend > .row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 2px 5px;
+}
+
+.legend > .row > span{
+    font-size: small;
+    color: #fff;
+    font-weight: 600;
+}
+
+.locIcon{
+    height: 3.5vh;
+    filter: brightness(125%);
+    object-fit: contain;
+}

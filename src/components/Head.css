@@ -1,0 +1,17 @@
+.head{
+    padding: 25px;
+    font-size: 35px;
+    font-weight: bolder;
+    position: relative;
+}
+
+.head::after{
+    content: '';
+    position: absolute;
+    width: 25%;
+    bottom: 35px;
+    z-index: -1;
+    left: 20px;
+    background-color: #cccecf;
+    height: 3%;
+}
