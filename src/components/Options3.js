@@ -53,6 +53,7 @@ function Options3({longitude, latitude, setData, setLocation, setZoom, setOtherD
     }
 
     useEffect(() => {
+    /* eslint-disable react-hooks/exhaustive-deps */
         locationWish();
     }, [])
 
