@@ -39,13 +39,17 @@ function Options2({setLocation, setZoom, setOtherData, setData, setActiveKey, se
      }
     const { Meta } = Card;
 
+    const indiaPic = 'https://source.unsplash.com/1600x900/?india,travel'
+    const delhi = 'https://source.unsplash.com/1600x900/?delhi,travel'
+    const punjabPic = 'https://source.unsplash.com/1600x900/?punjab,amritsar'
+
     return (
         <div className='cardOptions'>
             <Card
                 onClick={locationIndia}
                 hoverable
                 style={{ width: 240 }}
-                cover={<Avatar style={{width: '100px', height: '100px', objectFit: 'cover', margin: '10px auto'}} src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
+                cover={<Avatar style={{width: '100px', height: '100px', objectFit: 'cover', margin: '10px auto'}} src={indiaPic} />}
             >
                 <Meta title="India" description="India" />
             </Card>
@@ -53,7 +57,7 @@ function Options2({setLocation, setZoom, setOtherData, setData, setActiveKey, se
                         onClick={locationNewDelhi}
                         hoverable
                         style={{ width: 240 }}
-                        cover={<Avatar style={{width: '100px', height: '100px', objectFit: 'cover', margin: '10px auto'}} src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
+                        cover={<Avatar style={{width: '100px', height: '100px', objectFit: 'cover', margin: '10px auto'}} src={delhi} />}
                     >
                         <Meta title="Home Town" description="New Delhi" />
                     </Card>
@@ -61,7 +65,7 @@ function Options2({setLocation, setZoom, setOtherData, setData, setActiveKey, se
                         onClick={locationChandigarh}
                         hoverable
                         style={{ width: 240 }}
-                        cover={<Avatar style={{width: '100px', height: '100px', objectFit: 'cover', margin: '10px auto'}} src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
+                        cover={<Avatar style={{width: '100px', height: '100px', objectFit: 'cover', margin: '10px auto'}} src={punjabPic} />}
                         >
                             <Meta title="Punjab" description="Punjab" />
                     </Card>

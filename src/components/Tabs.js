@@ -6,7 +6,7 @@ import ZoomBar from "./ZoomBar"
 import Options2 from './Options2';
 import Options3 from './Options3';
 
-function Tab({setLocation, zoom, setZoom, setOtherData, setData, setActiveKey, setLongitude, setLatitude, data}) {
+function Tab({latitude, longitude, setLocation, zoom, setZoom, setOtherData, setData, setActiveKey, setLongitude, setLatitude, data}) {
 
     const { TabPane } = Tabs;
 
@@ -21,7 +21,7 @@ function Tab({setLocation, zoom, setZoom, setOtherData, setData, setActiveKey, s
                     <Options2 setLocation={setLocation} zoom={zoom} setZoom={setZoom} setOtherData={setOtherData} setData={setData} setActiveKey={setActiveKey} setLatitude={setLatitude} setLongitude={setLongitude} data={data}/>
                 </TabPane>
                 <TabPane tab="Wish" key={3}>
-                    <Options3 setLocation={setLocation} zoom={zoom} setZoom={setZoom} setOtherData={setOtherData} setData={setData} setActiveKey={setActiveKey} setLatitude={setLatitude} setLongitude={setLongitude} data={data}/>
+                    <Options3 latitude={latitude} longitude={longitude} setLocation={setLocation} zoom={zoom} setZoom={setZoom} setOtherData={setOtherData} setData={setData} setActiveKey={setActiveKey} setLatitude={setLatitude} setLongitude={setLongitude} data={data}/>
                 </TabPane>
             </Tabs>
         </div>

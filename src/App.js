@@ -23,7 +23,7 @@ function App() {
       <Head/>
       <Map location={location} zoom={zoom} otherData={otherData} longitude={longitude} latitude={latitude} activeKey={activeKey} />
       {/* <Options  /> */}
-      <Tab setLocation={setLocation} zoom={zoom} setZoom={setZoom} setOtherData={setOtherData} setData={setData} setActiveKey={setActiveKey} setLatitude={setLatitude} setLongitude={setLongitude} data={data} />
+      <Tab longitude={longitude} latitude={latitude} setLocation={setLocation} zoom={zoom} setZoom={setZoom} setOtherData={setOtherData} setData={setData} setActiveKey={setActiveKey} setLatitude={setLatitude} setLongitude={setLongitude} data={data} />
       <Footer />
     </div>
   );

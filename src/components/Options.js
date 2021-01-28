@@ -59,6 +59,10 @@ function Options({setLocation, zoom, setZoom, setOtherData, setData, setActiveKe
         }).catch(e => console.log(e))
     }
 
+    const unaPic = 'https://source.unsplash.com/1600x900/?institution,college'
+    const chdPic = 'https://source.unsplash.com/1600x900/?punjab,school'
+    const lifePic = 'https://source.unsplash.com/1600x900/?life,flowers'
+
     return (
         <div>
 
@@ -67,7 +71,7 @@ function Options({setLocation, zoom, setZoom, setOtherData, setData, setActiveKe
                         onClick={locationUNA}
                         hoverable
                         style={{ width: 240 }}
-                        cover={<Avatar style={{width: '100px', height: '100px', objectFit: 'cover', margin: '10px auto'}} src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
+                        cover={<Avatar style={{width: '100px', height: '100px', objectFit: 'cover', margin: '10px auto'}} src={unaPic} />}
                         >
                         <Meta title="UNA" description="UNA" />
                     </Card>
@@ -75,7 +79,7 @@ function Options({setLocation, zoom, setZoom, setOtherData, setData, setActiveKe
                         onClick={locationChandigarh}
                         hoverable
                         style={{ width: 240 }}
-                        cover={<Avatar style={{width: '100px', height: '100px', objectFit: 'cover', margin: '10px auto'}} src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
+                        cover={<Avatar style={{width: '100px', height: '100px', objectFit: 'cover', margin: '10px auto'}} src={chdPic} />}
                         >
                         <Meta title="Schooling" description="Chandigarh University" />
                     </Card>
@@ -83,7 +87,7 @@ function Options({setLocation, zoom, setZoom, setOtherData, setData, setActiveKe
                         onClick={lifeMap}
                         hoverable
                         style={{ width: 240 }}
-                        cover={<Avatar style={{width: '100px', height: '100px', objectFit: 'cover', margin: '10px auto'}} src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
+                        cover={<Avatar style={{width: '100px', height: '100px', objectFit: 'cover', margin: '10px auto'}} src={lifePic} />}
                     >
                         <Meta title="Life Map" description="LifeMap" />
                     </Card>

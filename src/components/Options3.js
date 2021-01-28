@@ -5,7 +5,7 @@ import axios from 'axios'
 import { Avatar } from 'antd'
 import url from '../axios/base'
 
-function Options3({setLocation, setZoom, setOtherData, setActiveKey, setLongitude, setLatitude}) {
+function Options3({longitude, latitude, setData, setLocation, setZoom, setOtherData, setActiveKey, setLongitude, setLatitude}) {
     
     const { Meta } = Card;
 
@@ -16,6 +16,7 @@ function Options3({setLocation, setZoom, setOtherData, setActiveKey, setLongitud
             setActiveKey('Wish')
             setOtherData([])
             setLocation('Wish Locations')
+            setData(res.data.data)
             setZoom(11)
         }).catch(e => console.log(e));
     }
@@ -24,12 +25,16 @@ function Options3({setLocation, setZoom, setOtherData, setActiveKey, setLongitud
         console.log(newData[0]);
         setLatitude(newData[0].latitude)
         setLongitude(newData[0].longitude)
-        setActiveKey(newData[0].message)
-        setLocation(newData[0].message)
-        setZoom(5)
+        console.log(latitude);
+        console.log(longitude);
+        setActiveKey('Chandigarh')
+        setLocation('Punjab')
+        setZoom(11)
     }
     const locationJapan = () => {
-        console.log(newData);
+        console.log(newData[2]);
+        console.log(latitude);        
+        console.log(longitude);
         setLatitude(newData[2].latitude)
         setLongitude(newData[2].longitude)
         setActiveKey(newData[2].message)
@@ -37,7 +42,9 @@ function Options3({setLocation, setZoom, setOtherData, setActiveKey, setLongitud
         setZoom(5)
     }
     const locationCali = () => {
-        console.log(newData);
+        console.log(newData[1]);
+        console.log(latitude);        
+        console.log(longitude);
         setLatitude(newData[1].latitude)
         setLongitude(newData[1].longitude)
         setActiveKey(newData[1].message)
@@ -49,21 +56,26 @@ function Options3({setLocation, setZoom, setOtherData, setActiveKey, setLongitud
         locationWish();
     }, [])
 
+    const disney = 'https://source.unsplash.com/1600x900/?disney,usa'
+    const japan = 'https://source.unsplash.com/1600x900/?japan,snow'
+    const usaLake = 'https://source.unsplash.com/1600x900/?lake,usa'
+
+
     return (
         <div className='cardOptions'>
             <Card
                 onClick={()=>locationDisney()}
                 hoverable
                 style={{ width: 240 }}
-                cover={<Avatar style={{width: '100px', height: '100px', objectFit: 'cover', margin: '10px auto'}} src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
+                cover={<Avatar style={{width: '100px', height: '100px', objectFit: 'cover', margin: '10px auto'}} src={disney} />}
             >
-                <Meta title="Home Town" description="New Delhi" />
+                <Meta title="DisneyLand" description="Walt Disney" />
             </Card>
             <Card
                 onClick={()=>locationJapan()}
                 hoverable
                 style={{ width: 240 }}
-                cover={<Avatar style={{width: '100px', height: '100px', objectFit: 'cover', margin: '10px auto'}} src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
+                cover={<Avatar style={{width: '100px', height: '100px', objectFit: 'cover', margin: '10px auto'}} src={japan} />}
                 >
                     <Meta title="Shirakawago" description="Japan" />
             </Card>
@@ -71,7 +83,7 @@ function Options3({setLocation, setZoom, setOtherData, setActiveKey, setLongitud
                 onClick={()=>locationCali()}
                 hoverable
                 style={{ width: 240 }}
-                cover={<Avatar style={{width: '100px', height: '100px', objectFit: 'cover', margin: '10px auto'}} src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
+                cover={<Avatar style={{width: '100px', height: '100px', objectFit: 'cover', margin: '10px auto'}} src={usaLake} />}
                 >
                     <Meta title="Mommath Lakes" description="California" />
             </Card>
