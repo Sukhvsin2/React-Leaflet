@@ -40,6 +40,7 @@ function Options({setLocation, zoom, setZoom, setOtherData, setData, setActiveKe
     }
     
     const locationUNA = () => {
+        home();
         setLatitude(data.UNA.latitude)
         setLongitude(data.UNA.longitude)
         setActiveKey('UNA')
