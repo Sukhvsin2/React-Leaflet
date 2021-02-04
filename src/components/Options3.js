@@ -27,8 +27,8 @@ function Options3({longitude, latitude, setData, setLocation, setZoom, setOtherD
         setLongitude(newData[0].longitude)
         console.log(latitude);
         console.log(longitude);
-        setActiveKey('Chandigarh')
-        setLocation('Punjab')
+        setActiveKey('disneyland')
+        setLocation('Disneyland')
         setZoom(11)
     }
     const locationJapan = () => {
